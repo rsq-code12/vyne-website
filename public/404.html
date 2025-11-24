@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      // SPA fallback for GitHub Pages:
+      // loads index.html into the page and restores the requested path for client-side routing.
+      (function() {
+        var path = location.pathname + location.search + location.hash;
+        // Try to fetch index.html from root; if successful, replace document with it.
+        fetch('/index.html')
+          .then(function(resp) {
+            if (resp.ok) return resp.text();
+            throw new Error('index.html not found');
+          })
+          .then(function(html) {
+            document.open();
+            document.write(html);
+            // restore requested path into the history for client-side router
+            history.replaceState({}, '', path);
+          })
+          .catch(function() {
+            // fallback to root if something goes wrong
+            location.replace('/');
+          });
+      })();
+    </script>
+  </body>
+</html>
