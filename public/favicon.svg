@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#00FF7F" flood-opacity="0.9"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#00FF7F" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="#0A0A0A"/>
+  <path d="M18 22 L32 46 L46 22" stroke="#00FF7F" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+</svg>
